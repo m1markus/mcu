@@ -7,10 +7,15 @@
 //
 // wiring: https://www.arduino.cc/en/Guide/TFTtoBoards
 //
+// GFX lib: https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts
+//
+// helper from ili9340:
+// uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);
 
-#include "SPI.h"
-#include "Adafruit_GFX.h"
-#include "Adafruit_ILI9340.h"
+#include <SPI.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_ILI9340.h>
+#include <Fonts/FreeMono24pt7b.h>
 #include <Process.h>
 
 #if defined(__SAM3X8E__)
@@ -35,6 +40,7 @@
 Adafruit_ILI9340 tft = Adafruit_ILI9340(_cs, _dc, _rst);
 
 int hour, min, sec, prevMin;
+uint16_t timeColor;
 
 
 void setup()   {
@@ -49,10 +55,15 @@ void setup()   {
 
   // rotation values: 0, 1, 2, 3
   tft.setRotation(1);
+  tft.setFont(&FreeMono24pt7b);
 
   //testText();
   
   tft.fillScreen(ILI9340_BLACK);
+
+  // kind of blue
+  //                   red green blue
+  timeColor = tft.Color565(196, 207, 252);
 
   prevMin = -1;
 }
@@ -175,10 +186,11 @@ void dispTime(int hour, int min, int sec)
   //
   // display HH:MM
   //
-  tft.setTextColor(ILI9340_WHITE);
-  tft.setTextSize(10);
+  //tft.setTextColor(ILI9340_WHITE);
+  tft.setTextColor(timeColor);
+  tft.setTextSize(2);
   snprintf(szBuf, sizeof(szBuf), "%02d:%02d", hour, min);
-  tft.setCursor(10, 100);
+  tft.setCursor(15, 150);
   tft.println(szBuf);
 }
 
