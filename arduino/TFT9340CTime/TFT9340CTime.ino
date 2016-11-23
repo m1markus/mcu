@@ -4,7 +4,7 @@
 // components:
 // yun
 // tft 240 x 320 ILI9340C    https://github.com/adafruit/Adafruit_ILI9340
-//              
+//
 // wiring: https://www.arduino.cc/en/Guide/TFTtoBoards
 //
 
@@ -34,31 +34,46 @@
 
 Adafruit_ILI9340 tft = Adafruit_ILI9340(_cs, _dc, _rst);
 
-int hour, min, sec;
+int hour, min, sec, prevMin;
 
 
 void setup()   {
 
   SerialUSB.begin(9600);
+  Bridge.begin();
   tft.begin();
-    
+
   testFillScreen();
 
   clearHHMMSS();
 
   // rotation values: 0, 1, 2, 3
   tft.setRotation(1);
-  
+
   //testText();
+  
+  tft.fillScreen(ILI9340_BLACK);
+
+  prevMin = -1;
 }
 
 
 void loop()
 {
   int rc = 0;
+  boolean bClearScreen = false;
+
   rc = getTimeFromDateCommand(&hour, &min, &sec);
-  hour=20; min=99;
+  if (prevMin != min) {
+    bClearScreen = true;
+  }
+  if (bClearScreen) {
+     tft.fillScreen(ILI9340_BLACK);
+  }
+  
+  // hour=20; min=99;
   if (0 == rc) {
+      prevMin = min;
     dispTime(hour, min, sec);
   }
   else {
@@ -155,7 +170,6 @@ int getTimeFromDateCommand(int *hour, int *min, int *sec)
 void dispTime(int hour, int min, int sec)
 {
   char szBuf[16];
-  tft.fillScreen(ILI9340_BLACK);
   // display seconds
   //snprintf(szBuf, sizeof(szBuf), "%02d", sec);
   //
@@ -164,7 +178,7 @@ void dispTime(int hour, int min, int sec)
   tft.setTextColor(ILI9340_WHITE);
   tft.setTextSize(10);
   snprintf(szBuf, sizeof(szBuf), "%02d:%02d", hour, min);
-  tft.setCursor(0, 0);
+  tft.setCursor(10, 100);
   tft.println(szBuf);
 }
 
@@ -179,4 +193,3 @@ void dipsError(char *pErr, int errCode)
   tft.setCursor(0, 0);
   tft.println(szErrBuf);
 }
-
