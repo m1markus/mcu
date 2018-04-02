@@ -95,11 +95,18 @@ void loop()
 
 
 void testFillScreen() {
-  tft.fillScreen(ILI9340_BLACK);
   tft.fillScreen(ILI9340_RED);
-  tft.fillScreen(ILI9340_GREEN);
-  tft.fillScreen(ILI9340_BLUE);
+  delay(1000);
   tft.fillScreen(ILI9340_BLACK);
+  delay(1000);
+  tft.fillScreen(ILI9340_GREEN);
+  delay(1000);
+  tft.fillScreen(ILI9340_BLACK);
+  delay(1000);
+  tft.fillScreen(ILI9340_BLUE);
+  delay(1000);
+  tft.fillScreen(ILI9340_BLACK);
+  delay(1000);
 }
 
 
