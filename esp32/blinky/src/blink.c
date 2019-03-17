@@ -14,6 +14,10 @@
 
 // https://docs.platformio.org/en/latest/ide/vscode.html
 
+// https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/
+
+// cp2102 Serial controller
+// /dev/cu.SLAB_USBtoUART
 
 //#define BLINK_GPIO CONFIG_BLINK_GPIO
 
