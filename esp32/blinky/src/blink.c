@@ -12,10 +12,10 @@
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 
-/* Can run 'make menuconfig' to choose the GPIO to blink,
-   or you can edit the following line and set a number here.
-*/
-#define BLINK_GPIO CONFIG_BLINK_GPIO
+// https://docs.platformio.org/en/latest/ide/vscode.html
+
+
+//#define BLINK_GPIO CONFIG_BLINK_GPIO
 
 void app_main()
 {
