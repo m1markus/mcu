@@ -1,5 +1,11 @@
 # Micro Computer Unit (MCU)
 
+## Project
+
+[EMO matrix display watch with arduino yun](arduino/EMO_Pixel_ArduinoYun_Watch/README.md)
+
+## References
+
 At this time there are only a view sketches for the [Arduino](https://www.arduino.cc/) platform.
 
 [ESP32](https://docs.espressif.com/projects/esp-idf/en/latest/)
