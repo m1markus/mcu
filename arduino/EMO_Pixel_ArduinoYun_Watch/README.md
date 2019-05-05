@@ -7,8 +7,8 @@
 ![time board](./img/watch_emo24_maxtix_display_control.jpg)
 
 ## step by step
-# emo matrix offline
-![time board](./img/watch_emo24_raw_offline.jpg.jpg)
+emo matrix offline
+![time board](./img/watch_emo24_raw_offline.jpg)
 
-# pinout with arduino uno
-![time board](./img/watch_emo24_with_arduino_uno.jpg.jpg)
+## pinout with arduino uno
+![time board](./img/watch_emo24_with_arduino_uno.jpg)
