@@ -1,6 +1,6 @@
 # Arduino
 
-* OLEDTime
+* OLEDTime TFT9340C
 
 ![time board](./OLEDtime/arduino_yun_time_board.png)
 
