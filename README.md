@@ -2,7 +2,7 @@
 
 ## Project
 
-[EMO matrix display watch with arduino yun](arduino/EMO_Pixel_ArduinoYun_Watch/README.md)
+[EMO matrix display watch with arduino yun](arduino/EMO_Pixel_ArduinoYun_Watch/)
 
 ## References
 
